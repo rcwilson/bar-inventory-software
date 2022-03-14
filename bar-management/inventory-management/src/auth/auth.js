@@ -48,3 +48,4 @@ export const AuthReducer = (initialState, action) => {
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
   }
+}

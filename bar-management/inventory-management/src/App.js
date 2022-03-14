@@ -5,7 +5,7 @@ import Logout from './Logout';
 import ProductsPage from './products/ProductsPage';
 import NewProductPage from './products/NewProduct';
 import NavTop from './components/Nav/NavTop';
-import { useEffect, useState, createContext, useContext } from 'react';
+import { createContext } from 'react';
 
 import UserAuth from './auth/UserAuth';
 
@@ -15,18 +15,18 @@ function App() {
 
   let { user , setUser, logout } = UserAuth();
 
-  function PageContainer(props) {
+  function PageContainer( props ) {
     return (
     <div className="content-container ">
-      {props.children}
+      { props.children }
     </div>
     )
   }
-  function Content(props) {
+  function Content( props ) {
      return (
         <div className="content">
-        {props.children}
-      </div>
+          { props.children }
+        </div>
       )
   }
 
@@ -34,11 +34,11 @@ function App() {
     return (
       <PageContainer>
         <Router>
-        <NavTop user={user} />
+        <NavTop user={ user } />
         <Content>
             <Switch>
               <Route exact path="/">
-                <Login setUser={setUser} />
+                <Login setUser={ setUser } />
               </Route>
               <Route path="*">
                 <Redirect to="/"/>
@@ -54,7 +54,7 @@ function App() {
     return (
       <PageContainer>
         <Router>
-        <NavTop user={user} logout={logout} />
+        <NavTop user={ user } logout={ logout } />
         <Content>
             <Switch>
               <Route exact path="/">

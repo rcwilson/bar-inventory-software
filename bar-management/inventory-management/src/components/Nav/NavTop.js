@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import './NavTop.css';
 
 
-function NavTop(props) {
-    const user = props.user;
+function NavTop({ user, ...props }) {
 
     function Links(){
       if( user ) {
@@ -31,9 +30,14 @@ function NavTop(props) {
     return (
         <Navbar sticky="top" bg="dark" variant="dark" expand="lg">
           <Container>
-            <Navbar.Brand>&nbsp;&nbsp;<Link className='nav-link' to="/"><img alt="company logo" width="50" height="50" className="me-4" src="/union_logo.jpg" /> Inventory Manager</Link></Navbar.Brand>
+            <Navbar.Brand>
+              &nbsp;&nbsp;
+              <Link className='nav-link' to="/"><img alt="company logo" width="50" height="50" className="me-4" src="/union_logo.jpg" />
+               Inventory Manager
+              </Link>
+            </Navbar.Brand>
             <Links />
-            {!user ? <h3 style={{color: "white"}}>Please Login</h3> : ""}
+            { !user ? <h3 style={ {color: "white"} }>Please Login</h3> : "" }
           </Container>
         </Navbar>
     )
