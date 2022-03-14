@@ -1,6 +1,8 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# @TODO add Frontend documentation when working structure is established
+
+## Original Create React App ReadMe
 
 ## Available Scripts
 

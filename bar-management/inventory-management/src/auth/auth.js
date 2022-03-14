@@ -1,5 +1,7 @@
-import React, { useReducer } from "react";
-import Cookies from 'js-cookie'
+
+/**
+ * Currently not in use
+ */
 
 let user = localStorage.getItem("user")
   ? JSON.parse(localStorage.getItem("user")).user
