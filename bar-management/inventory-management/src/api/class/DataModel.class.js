@@ -1,7 +1,11 @@
 import Axios from 'axios';
 
 export default class DataModel {
-
+/**
+ * 
+ * @param {object} data 
+ * @param {string} action 
+ */
     constructor ( data, action ) {
         if( data ) {
             this._id    = data._id ?? null;
@@ -30,6 +34,10 @@ export default class DataModel {
         delete: (url, requireValidation) => {
             this.requireValidation.delete = requireValidation;
             this.url.delete = url;
+        },
+        edit: (url, requireValidation) => {
+            this.requireValidation.edit = requireValidation;
+            this.url.edit = url;
         },
         custom: (methodName, url, requireValidation) => {
             this.requireValidation[methodName] = requireValidation;
@@ -66,7 +74,7 @@ export default class DataModel {
 
     async get ( ) {
         try {
-            console.log("this.url[action]", this.url[this.action])
+            console.log("this.url[action]", this.url[this.action]);
             const result = await Axios.get(this.url[this.action]);
             return result;
         }
@@ -77,7 +85,7 @@ export default class DataModel {
     }
 
     async delete ( ) {
-        console.log("Product.delete: (this) ", this)
+        console.log("this.delete: (this) ", this);
         try {
             console.log("this.url[action]", `${this.url[this.action]}`)
             const result = await Axios.delete( this.url[this.action] );
@@ -85,6 +93,18 @@ export default class DataModel {
         }
         catch ( error ) {
             console.log( error );
+        }
+    }
+    
+    async edit ( ) {
+        console.log("this.edit: (this) ", this);
+        try {
+            console.log("this.url[action]", `${this.url[this.action]}`);
+            const result = await Axios.patch( this.url[this.action], this );
+            return result;
+        }
+        catch ( error ) {
+            console.error( error );
         }
     }
 

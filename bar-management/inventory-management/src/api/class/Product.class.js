@@ -16,9 +16,10 @@ class Product extends DataModel {
             this.distributor    = data.distributor;
         }
         
-        this.setURL.create('/products/new', true)
-        this.setURL.delete('/products/' + data?._id, true)
-        this.setURL.getAll('/products', false)
+        this.setURL.create('/products/new', true);
+        this.setURL.delete('/products/' + data?._id, true);
+        this.setURL.edit('/products/' + data?._id, true)
+        this.setURL.getAll('/products', false);
 
         this.setSchema({
             _id: {

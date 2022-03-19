@@ -102,6 +102,18 @@ export default class API {
                 console.log( err )
                 return {success: false, message: err};
             }
+        },
+
+        editProduct: async function ( data ) {
+            try {
+                const product = new Product ( data, 'edit' );
+                const result = await product.edit();
+                console.log( result );
+                return API.parseResponse( result );
+            }
+            catch ( err ) {
+                return API.parseError( err );
+            }
         }
     }
 
@@ -122,6 +134,15 @@ export default class API {
         return {
             success: response?.data.success || response.success,
             data: response.data
+        }
+    }
+
+    static parseError = ( err ) => {
+        console.error( err );
+        return {
+            success: false,
+            message: err,
+            data: null
         }
     }
 }
