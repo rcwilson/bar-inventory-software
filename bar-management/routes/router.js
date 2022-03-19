@@ -19,5 +19,6 @@ router.post('/logout', UserController.logout);
 router.get('/products', ProductController.findAll);
 router.post('/products/new', ProductController.addNewProduct);
 router.delete('/products/:_id', ProductController.deleteProduct);
+router.patch('/products/:_id', ProductController.editProduct);
 
 module.exports = router;

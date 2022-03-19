@@ -65,5 +65,27 @@ module.exports = {
         } finally {
             return res.send(response);
         }
+    },
+    
+    async editProduct(req, res) {
+        Log.print( Log.fc.cyn( 'Edit Product: ', Log.fc.wht( req.params?._id, req.body )));
+        let response = { success: true, message: "" };
+        const _id = req.params._id;
+        if( (!_id) || _id === null ) {
+            console.error("_id missing for Edit Product");
+            response.success = false;
+            response.message = "_id of product missing";
+            return res.send( response );
+        } 
+        try {
+            const result = await Product.findByIdAndUpdate( _id, req.body );
+            console.log("edit product result: ", result)
+            response.message = "Success";
+        } catch (error) {
+            response.message = error;
+            response.success = false;
+        } finally {
+            return res.send( response );
+        }
     }
 }
