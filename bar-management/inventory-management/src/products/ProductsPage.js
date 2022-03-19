@@ -128,6 +128,7 @@ function ProductsPage() {
                 <th>Category</th>
                 <th>Unit</th>
                 <th>Package Size</th>
+                <th>Package Price</th>
                 <th>Distributor</th>
                 <th></th>
               </tr>
@@ -141,6 +142,7 @@ function ProductsPage() {
                   <td>{product.category}</td>
                   <td>{product.unit}</td>
                   <td>{product.package_units} UNIT / {product.package_type}</td>
+                  <td>${product.package_price}</td>
                   <td>{product.distributor}</td>
                   <td> 
                     <Container>
