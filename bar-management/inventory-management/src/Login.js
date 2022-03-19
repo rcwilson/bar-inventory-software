@@ -10,7 +10,8 @@ function Login(props) {
     useEffect(() => {
         API.Conn.test()
             .then( res => {
-                if( res && res.success ) {
+                console.log(res)
+                if( res && res.status === 200 ) {
                     setConnectionStatus(<FaCheckCircle className="text-success" />)
                 }
             })
